@@ -9,7 +9,7 @@ class Question{
         this.answer = answer
     }
 
-    showQuestion(){
+    showQuestion():void{
         console.log(this.prompt)
         this.options.forEach(question =>console.log(`    ${question}\n`));
         console.log(`\n`)
@@ -21,19 +21,44 @@ class Question{
 
 }
 
-let question:Question = new Question("Observables help you manage . . . . . . . . data.",
-                                     ["A. Synchronous","B. Asynchronous","C. Both asynchronous & synchronous","D. None of above"],
-                                     "b")
+class Exam{
+    questions:Question[]
 
-const userAnswer = "c"
+    constructor(questions:Question[]) {
+        this.questions = questions
+    }
+    
 
-question.showQuestion()
-console.log(`Tu respuesta: ${userAnswer}...`)
-
-if(question.validateAnswer(userAnswer)){
-    console.log("Respuesta Correcta!")
-}else{
-    console.log("Respuesta Incorrecta! :'(")
+    giveNote(anwers:string[]){
+        let correctAnwers = 0
+        this.questions.forEach((question,index) => {
+            if(question.answer == anwers[index]){
+                correctAnwers++
+            }
+        });
+        const percentage = correctAnwers*100 / this.questions.length
+        return percentage.toFixed(2)
+    }
 }
 
+
+let question1:Question = new Question("Observables help you manage . . . . . . . . data.",
+                                     ["A. Synchronous","B. Asynchronous","C. Both asynchronous & synchronous","D. None of above"],
+                                     "b")
+let question2:Question = new Question("Observables help you manage . . . . . . . . data.",
+["A. Synchronous","B. Asynchronous","C. Both asynchronous & synchronous","D. None of above"],
+"b")
+
+let question3:Question = new Question("Observables help you manage . . . . . . . . data.",
+["A. Synchronous","B. Asynchronous","C. Both asynchronous & synchronous","D. None of above"],
+"b")
+
+let exam: Exam = new Exam([question1,question2,question3])
+
+const userAnswers = ["a","b","c"]
+const userAnswers2 = ["a","b","b"]
+
+
+console.log(exam.giveNote(userAnswers))
+console.log(exam.giveNote(userAnswers2))
 

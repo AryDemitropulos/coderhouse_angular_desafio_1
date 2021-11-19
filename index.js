@@ -14,13 +14,27 @@ var Question = /** @class */ (function () {
     };
     return Question;
 }());
-var question = new Question("Observables help you manage . . . . . . . . data.", ["A. Synchronous", "B. Asynchronous", "C. Both asynchronous & synchronous", "D. None of above"], "b");
-var userAnswer = "c";
-question.showQuestion();
-console.log("Tu respuesta: ".concat(userAnswer, "..."));
-if (question.validateAnswer(userAnswer)) {
-    console.log("Respuesta Correcta!");
-}
-else {
-    console.log("Respuesta Incorrecta! :'(");
-}
+var Exam = /** @class */ (function () {
+    function Exam(questions) {
+        this.questions = questions;
+    }
+    Exam.prototype.giveNote = function (anwers) {
+        var correctAnwers = 0;
+        this.questions.forEach(function (question, index) {
+            if (question.answer == anwers[index]) {
+                correctAnwers++;
+            }
+        });
+        var percentage = correctAnwers * 100 / this.questions.length;
+        return percentage.toFixed(2);
+    };
+    return Exam;
+}());
+var question1 = new Question("Observables help you manage . . . . . . . . data.", ["A. Synchronous", "B. Asynchronous", "C. Both asynchronous & synchronous", "D. None of above"], "b");
+var question2 = new Question("Observables help you manage . . . . . . . . data.", ["A. Synchronous", "B. Asynchronous", "C. Both asynchronous & synchronous", "D. None of above"], "b");
+var question3 = new Question("Observables help you manage . . . . . . . . data.", ["A. Synchronous", "B. Asynchronous", "C. Both asynchronous & synchronous", "D. None of above"], "b");
+var exam = new Exam([question1, question2, question3]);
+var userAnswers = ["a", "b", "c"];
+var userAnswers2 = ["a", "b", "b"];
+console.log(exam.giveNote(userAnswers));
+console.log(exam.giveNote(userAnswers2));
