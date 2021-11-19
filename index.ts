@@ -11,7 +11,7 @@ class Question{
 
     showQuestion():void{
         console.log(this.prompt)
-        this.options.forEach(question =>console.log(`    ${question}\n`));
+        this.options.forEach((question,index) =>console.log(`    ${index+1}. ${question}\n`));
         console.log(`\n`)
     }
 
@@ -47,22 +47,22 @@ class Exam{
     displayCorrectAnwers(){
         this.questions.forEach(question=>{
             console.log(question.prompt)
-            console.log("ANSWER: " + question.answer)
+            console.log("ANSWER: " + question.options[parseInt(question.answer)-1])
         })
     }
 }
 
 
 let question1:Question = new Question("Observables help you manage . . . . . . . . data.",
-                                     ["A. Synchronous","B. Asynchronous","C. Both asynchronous & synchronous","D. None of above"],
-                                     "b")
+                                     ["Synchronous","Asynchronous","Both asynchronous & synchronous","None of above"],
+                                     "2")
 let question2:Question = new Question("The . . . . . decorator allows us to define the pipe name that is globally available for use in any template in the across application.",
-["A. pipeName","B. pipeDeco","C. Pipe","D. None"],
-"c")
+["pipeName","pipeDeco","Pipe","None"],
+"3")
 
 let question3:Question = new Question(" Which of the following is the correct way to apply a filter?",
-["A. property-value || filter","B. Property-value && filter","C. Property-value | filter"],
-"c")
+["property-value || filter","Property-value && filter","Property-value | filter"],
+"3")
 
 let exam: Exam = new Exam([question1,question2,question3])
 
@@ -81,12 +81,12 @@ const student1 = {
 const student2 = {
     name:"Pepito",
     lastName:"Perez",
-    anwers:["b", "b"]
+    anwers:["2", "2"]
 }
 const student3 = {
     name:"Hermione",
     lastName:"Granger",
-    anwers:["B", "c", "C"]
+    anwers:["2", "3", "3"]
 }
 
 const class_:Student[]= [student1,student2,student3]

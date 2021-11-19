@@ -6,7 +6,7 @@ var Question = /** @class */ (function () {
     }
     Question.prototype.showQuestion = function () {
         console.log(this.prompt);
-        this.options.forEach(function (question) { return console.log("    ".concat(question, "\n")); });
+        this.options.forEach(function (question, index) { return console.log("    ".concat(index + 1, ". ").concat(question, "\n")); });
         console.log("\n");
     };
     Question.prototype.validateAnswer = function (answer) {
@@ -35,14 +35,14 @@ var Exam = /** @class */ (function () {
     Exam.prototype.displayCorrectAnwers = function () {
         this.questions.forEach(function (question) {
             console.log(question.prompt);
-            console.log("ANSWER: " + question.answer);
+            console.log("ANSWER: " + question.options[parseInt(question.answer) - 1]);
         });
     };
     return Exam;
 }());
-var question1 = new Question("Observables help you manage . . . . . . . . data.", ["A. Synchronous", "B. Asynchronous", "C. Both asynchronous & synchronous", "D. None of above"], "b");
-var question2 = new Question("The . . . . . decorator allows us to define the pipe name that is globally available for use in any template in the across application.", ["A. pipeName", "B. pipeDeco", "C. Pipe", "D. None"], "c");
-var question3 = new Question(" Which of the following is the correct way to apply a filter?", ["A. property-value || filter", "B. Property-value && filter", "C. Property-value | filter"], "c");
+var question1 = new Question("Observables help you manage . . . . . . . . data.", ["Synchronous", "Asynchronous", "Both asynchronous & synchronous", "None of above"], "2");
+var question2 = new Question("The . . . . . decorator allows us to define the pipe name that is globally available for use in any template in the across application.", ["pipeName", "pipeDeco", "Pipe", "None"], "3");
+var question3 = new Question(" Which of the following is the correct way to apply a filter?", ["property-value || filter", "Property-value && filter", "Property-value | filter"], "3");
 var exam = new Exam([question1, question2, question3]);
 var student1 = {
     name: "Cosme",
@@ -52,12 +52,12 @@ var student1 = {
 var student2 = {
     name: "Pepito",
     lastName: "Perez",
-    anwers: ["b", "b"]
+    anwers: ["2", "2"]
 };
 var student3 = {
     name: "Hermione",
     lastName: "Granger",
-    anwers: ["B", "c", "C"]
+    anwers: ["2", "3", "3"]
 };
 var class_ = [student1, student2, student3];
 var giveNotesToClass = function () {
