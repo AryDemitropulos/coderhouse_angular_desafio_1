@@ -1,15 +1,16 @@
-const prompt = require('prompt');
 
-prompt.start();
+const question:string = `Observables help you manage . . . . . . . . data.\nA. Synchronous\nB. Asynchronous\nC. Both asynchronous & synchronous\nD. None of above\n\n`
+const correctAnswer:string = "b"
+const answer:string = "c"
 
-prompt.get(['username', 'email'], function (err, result) {
-    if (err) { return onErr(err); }
-    console.log('Command-line input received:');
-    console.log('  Username: ' + result.username);
-    console.log('  Email: ' + result.email);
-});
+console.log(question)
+console.log(`Tu respuesta: ${answer}...`)
 
-function onErr(err) {
-    console.log(err);
-    return 1;
+if(correctAnswer == answer){
+    console.log("Respuesta Correcta!")
+}else{
+    console.log("Respuesta Incorrecta! :'(")
 }
+
+
+

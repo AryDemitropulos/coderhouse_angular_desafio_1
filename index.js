@@ -1,15 +1,11 @@
-var readline = require("readline");
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-rl.question("What is your name ? ", function (name) {
-    rl.question("Where do you live ? ", function (country) {
-        console.log("".concat(name, ", is a citizen of ").concat(country));
-        rl.close();
-    });
-});
-rl.on("close", function () {
-    console.log("\nBYE BYE !!!");
-    process.exit(0);
-});
+var question = "Observables help you manage . . . . . . . . data.\nA. Synchronous\nB. Asynchronous\nC. Both asynchronous & synchronous\nD. None of above\n\n";
+var correctAnswer = "b";
+var answer = "c";
+console.log(question);
+console.log("Tu respuesta: ".concat(answer, "..."));
+if (correctAnswer == answer) {
+    console.log("Respuesta Correcta!");
+}
+else {
+    console.log("Respuesta Incorrecta! :'(");
+}
