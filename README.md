@@ -1,4 +1,4 @@
 # coderhouse_angular_desafio_1
-Desafio 1 del curso de Angular de Coderhouse
+Desafío 1 del curso de Angular de Coderhouse
 
-Muestra los resultados de un hipotetico examen para un hipotetico salon de clases
+Muestra los resultados de un hipotético examen para un hipotético salón de clases
