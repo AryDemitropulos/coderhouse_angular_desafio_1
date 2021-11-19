@@ -8,5 +8,8 @@
     "start": " npx tsc ./index.ts && node index.js"
   },
   "author": "Ary Demitropulos",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prompt": "^1.2.0"
+  }
 }
