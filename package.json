@@ -9,7 +9,5 @@
   },
   "author": "Ary Demitropulos",
   "license": "MIT",
-  "dependencies": {
-    "prompt": "^1.2.0"
-  }
+  "dependencies": {}
 }
