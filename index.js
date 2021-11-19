@@ -1,1 +1,1 @@
-console.log("Hola Coderhouse desde TS!");
+console.log("Hola Coderhouse desde TS en un solo comando!");
